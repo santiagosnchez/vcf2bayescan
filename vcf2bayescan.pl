@@ -8,7 +8,7 @@ my @exclude=();
 my @indnms=();
 my %data=();
 my $usage = "Usage:
-perl vcf2bayescan.pl -p <popfile>-v <vcf-file> -e <exclude1:[exclude2]>
+perl vcf2bayescan.pl -p <popfile> -v <vcf-file> -e <exclude1:[exclude2]>
 
 example:
 perl vcf2bayescan.pl -p pops.txt -v snps.vcf -e indv10:indiv12
