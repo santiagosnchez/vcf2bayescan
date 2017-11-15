@@ -1,4 +1,4 @@
-use List::MoreUtils qw(any all uniq);
+use List::MoreUtils uniq;
 my $gzip = 0;
 my $vcf;
 my $popfile;
