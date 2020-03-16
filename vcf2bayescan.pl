@@ -66,7 +66,7 @@ close POP;
 # Get populations and sort them
 
 my @upops = sort { $a cmp $b } uniq ( values %pops );
-print "found ", scalar @upops, " populations\n"; 
+print "found ", scalar @upops, " populations\n";
 
 # read and process VCF file
 
@@ -82,7 +82,7 @@ while(<VCF>){
 		@indnms = @HEAD[ ($format_ind+1) .. $#HEAD ];
 		@indidx = 0 .. $#indnms;
 		if (scalar(@exclude) != 0){
-			@exidx = map { $ex = $_; 
+			@exidx = map { $ex = $_;
 				       ($x) = grep { $indnms[$_] =~ /$ex/ } 0 .. $#indnms;
 				       splice(@indidx,$x,1);
 				       splice(@indnms,$x,1) } @exclude;
@@ -96,7 +96,7 @@ while(<VCF>){
 		@DAT = split /\t/, $_;
 		for $pop (@upops){
 			@get_ind_pop=();
-			map { push @get_ind_pop, $_ if ($pops{$_} == $pop) } keys %pops;
+			map { push @get_ind_pop, $_ if ($pops{$_} eq $pop) } keys %pops;
 			@myind = getind(\@HEAD,\@get_ind_pop);
 			@site = @DAT[@myind];
 			map { s/:.*// } @site;
@@ -143,4 +143,3 @@ sub count {
 	++$co{$_} for @arr;
 	return %co;
 }
-
